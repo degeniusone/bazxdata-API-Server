@@ -88,3 +88,11 @@ def gcp_api_main(request):
 
     except Exception:
         logging.error(traceback.format_exc())
+
+
+if __name__ == "__main__":
+    import os
+    import uvicorn
+
+    port = int(os.environ.get("PORT", 8000))  # Default to port 8000 if PORT is not set
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
